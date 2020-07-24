@@ -41,7 +41,7 @@ namespace AudioSystem{
         
             var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
             Debug.Log(freq);
-            voiceInputStream.OnNext(new VoiceStatus(freq,SeparateNum,maxValue));
+            voiceInputStream.OnNext(new VoiceStatus(freq,SeparateNum, maxValue));
         }
 
         public void StopMicrophone(){

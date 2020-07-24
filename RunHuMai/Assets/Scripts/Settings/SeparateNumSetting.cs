@@ -25,7 +25,8 @@ namespace Settings{
             
             text.text = "５秒間一定の声を出し続けてください";
 
-            input.OnVoiceInput.First()
+            input.OnVoiceInput
+                 .First(status => status.Pitch != 0)
                  .Subscribe(async _=> {
                      text.text = "計測中...";
                      await SettingSep(token);
@@ -35,11 +36,12 @@ namespace Settings{
 
         async UniTask SettingSep(CancellationToken token){
             var list = await input.OnVoiceInput.Buffer(TimeSpan.FromSeconds(5)).First().ToUniTask(token);
-            list.OrderBy(n => n.Value);
-            list.Select(n => n.Value).Print();
-            var sep = list[list.Count / 2].Value;
+            list.OrderBy(n => n.Pitch);
+            list.Select(n => n.Pitch).Print();
+            var sep = list[list.Count / 2].Pitch;
             token.ThrowIfCancellationRequested();
             input.SeparateNum = sep;
+            Debug.Log(sep);
         }
     }
 }

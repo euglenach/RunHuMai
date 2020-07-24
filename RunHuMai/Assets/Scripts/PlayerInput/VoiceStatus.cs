@@ -1,15 +1,15 @@
 namespace PlayerInput{
     public struct VoiceStatus{
         private int separateNum;
-        private int value;
+        private int pitch;
         private float volume;
-        public VoiceStatus(int separateNum, int value, float volume){
+        public VoiceStatus(int pitch, int separateNum, float volume){
             this.separateNum = separateNum;
-            this.value = value;
+            this.pitch = pitch;
             this.volume = volume;
         }
         public int SeparateNum => separateNum;
-        public int Value => value;
+        public int Pitch => pitch;
         public float Volume => volume;
     }
 }
