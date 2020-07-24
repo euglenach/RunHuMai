@@ -21,10 +21,7 @@ namespace AudioSystem{
 
             Debug.Log("既定のデバイス:" + micDevices.First());
 
-            micAudio.clip = Microphone.Start(micDevices.First(), true, 1000, 44100);
-            await UniTask.WaitWhile(() =>Microphone.GetPosition(micDevices.First()) <= 0);
-        
-            // micAudio.Play();
+            StartMicrophone(micDevices.First());
         }
         
         private void FixedUpdate(){
@@ -44,6 +41,17 @@ namespace AudioSystem{
             var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
             Debug.Log(freq);
             voiceInputStream.OnNext(freq);
+        }
+
+        public void StopMicrophone(){
+            micAudio.clip = null;
+            micAudio.Stop();
+        }
+        public async void StartMicrophone(string deviceName = null, bool playAudio = false){
+            micAudio.clip = Microphone.Start(deviceName, true, 1000, 44100);
+            if(!playAudio){ return; }
+            await UniTask.WaitWhile(() =>Microphone.GetPosition(deviceName) <= 0);
+            micAudio.Play();
         }
     }
 }
