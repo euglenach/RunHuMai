@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace PlayerInput{
     public class KeyInput : IInputProvider{
-        public IObservable<Unit> InputMove(){
+        public IObservable<float> InputMove(){
             return Observable.EveryUpdate()
                              .Where(_ => Input.GetKey(KeyCode.RightArrow))
-                             .AsUnitObservable();
+                             .Select(_ => 1f);
         }
 
-        public IObservable<Unit> InputJump(){
+        public IObservable<float> InputJump(){
             return Observable.EveryUpdate()
                              .Where(_ => Input.GetKeyDown(KeyCode.Space))
-                             .AsUnitObservable();
+                             .Select(_ => 1f);
         }
     }
 }

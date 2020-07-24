@@ -7,16 +7,16 @@ namespace PlayerInput{
     public class VoiceInput : IInputProvider{
         [Inject] private MicrophoneInput input;
         
-        public IObservable<Unit> InputMove(){
+        public IObservable<float> InputMove(){
             return input.OnVoiceInput
-                 .Where(voice => voice.Value >= voice.SeparateNum )
-                 .AsUnitObservable();
+                        .Where(voice => voice.Value >= voice.SeparateNum)
+                        .Select(voice => voice.Volume);
         }
 
-        public IObservable<Unit> InputJump(){
+        public IObservable<float> InputJump(){
             return input.OnVoiceInput
                         .Where(voice => voice.Value < voice.SeparateNum)
-                        .AsUnitObservable();
+                        .Select(voice => voice.Volume);
         }
     }
 }
