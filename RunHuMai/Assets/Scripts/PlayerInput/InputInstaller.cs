@@ -1,7 +1,7 @@
 using Zenject;
 
 namespace PlayerInput{
-    public class InputInstaller : Installer<InputInstaller>{
+    public class InputInstaller : MonoInstaller{
         public override void InstallBindings(){
             Container
                 .Bind<IInputProvider>()

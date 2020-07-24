@@ -27,7 +27,7 @@ namespace AudioSystem{
             // micAudio.Play();
         }
         
-        private void Update(){
+        private void FixedUpdate(){
             micAudio.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
         
             var maxIndex = 0;
