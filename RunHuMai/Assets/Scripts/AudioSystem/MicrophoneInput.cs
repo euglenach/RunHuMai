@@ -25,23 +25,27 @@ namespace AudioSystem{
         
         private void FixedUpdate(){
             if(micAudio.clip == null){ return;}
-            
-            micAudio.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
-        
-            var maxIndex = 0;
-            var maxValue = 0.0f;
-            for(var i = 0; i < spectrum.Length; i++){
-                var val = spectrum[i];
-                if(val > maxValue){
-                    maxValue = val;
-                    maxIndex = i;
-                }
-            }
-            if(maxValue < 0.02f){ maxIndex = 0; }
-        
-            var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
-            Debug.Log(freq);
-            voiceInputStream.OnNext(new VoiceStatus(freq,SeparateNum, maxValue));
+
+            var data = SoundLibrary.AnalyzeSound(micAudio,2048,0.005f);
+
+            // micAudio.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
+            //
+            // var maxIndex = 0;
+            // var maxValue = 0.0f;
+            // for(var i = 0; i < spectrum.Length; i++){
+            //     var val = spectrum[i];
+            //     if(val > maxValue){
+            //         maxValue = val;
+            //         maxIndex = i;
+            //     }
+            // }
+            // if(maxValue < 0.02f){ maxIndex = 0; }
+            //
+            // var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
+            // Debug.Log(freq);
+
+            voiceInputStream.OnNext(new VoiceStatus(Mathf.RoundToInt(data.Pitch),SeparateNum, data.Volume));
+            Debug.Log(Mathf.RoundToInt(data.Pitch));
         }
 
         public void StopMicrophone(){
