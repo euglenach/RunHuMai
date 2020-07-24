@@ -467,8 +467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status:
-    jumpPower: 10
-    movePower: 10
+    jumpPower: 7
+    movePower: 100
 --- !u!4 &1055923928
 Transform:
   m_ObjectHideFlags: 0
