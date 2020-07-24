@@ -10,7 +10,7 @@ namespace AudioSystem{
     public class MicrophoneInput : MonoBehaviour{
         private AudioSource micAudio;
         float[] spectrum = new float[2048];
-        private int separateNum = 700;
+        public int SeparateNum{get;set;} = 700;
         private readonly Subject<VoiceStatus> voiceInputStream = new Subject<VoiceStatus>();
         public IObservable<VoiceStatus> OnVoiceInput => voiceInputStream;
         
@@ -41,7 +41,7 @@ namespace AudioSystem{
         
             var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
             Debug.Log(freq);
-            voiceInputStream.OnNext(new VoiceStatus(freq,separateNum,maxValue));
+            voiceInputStream.OnNext(new VoiceStatus(freq,SeparateNum,maxValue));
         }
 
         public void StopMicrophone(){
