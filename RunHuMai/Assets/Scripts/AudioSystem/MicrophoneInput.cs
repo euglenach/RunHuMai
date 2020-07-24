@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using PlayerInput;
 using UniRx;
 using UniRx.Async;
 using UnityEngine;
@@ -10,12 +11,10 @@ namespace AudioSystem{
         private AudioSource micAudio;
         float[] spectrum = new float[2048];
         private int separateNum = 900;
-        public int SeparateNum => separateNum;
-
-        private readonly Subject<int> voiceInputStream = new Subject<int>();
-        public IObservable<int> OnVoiceInput => voiceInputStream;
+        private readonly Subject<VoiceStatus> voiceInputStream = new Subject<VoiceStatus>();
+        public IObservable<VoiceStatus> OnVoiceInput => voiceInputStream;
         
-        async void Start(){
+        void Start(){
             micAudio = GetComponent<AudioSource>();
             var micDevices = Microphone.devices;
 
@@ -40,7 +39,7 @@ namespace AudioSystem{
         
             var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
             Debug.Log(freq);
-            voiceInputStream.OnNext(freq);
+            voiceInputStream.OnNext(new VoiceStatus(freq,separateNum,maxValue));
         }
 
         public void StopMicrophone(){

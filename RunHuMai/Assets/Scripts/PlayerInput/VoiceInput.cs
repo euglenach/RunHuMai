@@ -9,13 +9,13 @@ namespace PlayerInput{
         
         public IObservable<Unit> InputMove(){
             return input.OnVoiceInput
-                 .Where(freq => freq >= input.SeparateNum)
+                 .Where(voice => voice.Value >= voice.SeparateNum )
                  .AsUnitObservable();
         }
 
         public IObservable<Unit> InputJump(){
             return input.OnVoiceInput
-                        .Where(freq => freq < input.SeparateNum)
+                        .Where(voice => voice.Value < voice.SeparateNum)
                         .AsUnitObservable();
         }
     }
