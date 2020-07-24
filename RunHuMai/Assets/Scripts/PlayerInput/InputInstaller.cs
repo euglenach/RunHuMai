@@ -5,7 +5,7 @@ namespace PlayerInput{
         public override void InstallBindings(){
             Container
                 .Bind<IInputProvider>()
-                .To<KeyInput>()
+                .To<VoiceInput>()
                 .AsCached();
         }
     }

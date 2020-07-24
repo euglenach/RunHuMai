@@ -10,7 +10,7 @@ namespace AudioSystem{
     public class MicrophoneInput : MonoBehaviour{
         private AudioSource micAudio;
         float[] spectrum = new float[2048];
-        private int separateNum = 900;
+        private int separateNum = 500;
         private readonly Subject<VoiceStatus> voiceInputStream = new Subject<VoiceStatus>();
         public IObservable<VoiceStatus> OnVoiceInput => voiceInputStream;
         
@@ -20,10 +20,12 @@ namespace AudioSystem{
 
             Debug.Log("既定のデバイス:" + micDevices.First());
 
-            StartMicrophone(micDevices.First());
+            StartMicrophone(micDevices.First(),true);
         }
         
         private void FixedUpdate(){
+            if(micAudio.clip == null){ return;}
+            
             micAudio.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
         
             var maxIndex = 0;
@@ -35,7 +37,7 @@ namespace AudioSystem{
                     maxIndex = i;
                 }
             }
-            if(maxValue < 0.01f){ return; }
+            if(maxValue < 0.01f){ maxIndex = 0; }
         
             var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
             Debug.Log(freq);
@@ -48,8 +50,8 @@ namespace AudioSystem{
         }
         public async void StartMicrophone(string deviceName = null, bool playAudio = false){
             micAudio.clip = Microphone.Start(deviceName, true, 1000, 44100);
-            if(!playAudio){ return; }
             await UniTask.WaitWhile(() =>Microphone.GetPosition(deviceName) <= 0);
+            if(!playAudio){ micAudio.volume = 0; }
             micAudio.Play();
         }
     }

@@ -9,13 +9,12 @@ namespace PlayerInput{
         
         public IObservable<float> InputMove(){
             return input.OnVoiceInput
-                        .Where(voice => voice.Value >= voice.SeparateNum)
-                        .Select(voice => voice.Volume);
+                        .Select(voice => voice.Value >= voice.SeparateNum ? voice.Volume : 0);
         }
 
         public IObservable<float> InputJump(){
             return input.OnVoiceInput
-                        .Where(voice => voice.Value < voice.SeparateNum)
+                        .Where(voice =>voice.Value < voice.SeparateNum)
                         .Select(voice => voice.Volume);
         }
     }
