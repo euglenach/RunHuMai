@@ -20,7 +20,7 @@ namespace AudioSystem{
 
             Debug.Log("既定のデバイス:" + micDevices.First());
 
-            StartMicrophone(micDevices.First(),true);
+            StartMicrophone(micDevices.First());
         }
         
         private void FixedUpdate(){
@@ -48,10 +48,9 @@ namespace AudioSystem{
             micAudio.clip = null;
             micAudio.Stop();
         }
-        public async void StartMicrophone(string deviceName = null, bool playAudio = false){
+        public async void StartMicrophone(string deviceName = null){
             micAudio.clip = Microphone.Start(deviceName, true, 1000, 44100);
             await UniTask.WaitWhile(() =>Microphone.GetPosition(deviceName) <= 0);
-            if(!playAudio){ micAudio.volume = 0; }
             micAudio.Play();
         }
     }
