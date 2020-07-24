@@ -23,17 +23,14 @@ namespace Players{
         }
 
         private void Move(float power){
-            var moveVector = player.Status.MovePower * power * Vector2.right;
+            var moveVector = player.Status.MovePower * power * Time.fixedDeltaTime  * Vector2.right;
             rb.velocity = new Vector2(moveVector.x,rb.velocity.y);
-            // rb.AddForce(moveVector,ForceMode2D.Impulse);
-            // if(power == 0){
-            //     rb.velocity = new Vector2(0,rb.velocity.y);
-            // }
         }
 
         private void Jump(float power){
-            Debug.Log("ジャンプ");
-            var jumpPower = player.Status.JumpPower * power * Vector2.up;
+            // Debug.Log("power"+power);
+            power = Mathf.Clamp(power * 10, 0, 1f);
+            var jumpPower = power * player.Status.JumpPower * Vector2.up;
             rb.AddForce(jumpPower,ForceMode2D.Impulse);
         }
 
