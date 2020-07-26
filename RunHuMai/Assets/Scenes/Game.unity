@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status:
     jumpPower: 7
-    movePower: 100
+    movePower: 5
 --- !u!4 &1055923928
 Transform:
   m_ObjectHideFlags: 0
@@ -899,6 +899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SettingCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6097671027883207677, guid: 110b19b118adad748884f54777c5a35f,
+        type: 3}
+      propertyPath: defaultValue
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 110b19b118adad748884f54777c5a35f, type: 3}

@@ -33,8 +33,8 @@ public static class SoundLibrary{
             float dR = spectrum[maxN + 1] / spectrum[maxN];
             freqN += 0.5f * (dR * dR - dL * dL);
         }
-
-        float pitchValue = freqN * (AudioSettings.outputSampleRate / 2) / qSamples;
+        
+        float pitchValue = freqN * (AudioSettings.outputSampleRate * .5f) / qSamples;
         return new SoundData(pitchValue,freqN);
     }
 

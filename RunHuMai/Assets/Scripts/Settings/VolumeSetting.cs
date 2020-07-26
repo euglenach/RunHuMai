@@ -1,3 +1,4 @@
+using UniRx;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -13,6 +14,10 @@ namespace Settings{
             slider = GetComponentInChildren<Slider>(true);
             SetVolume(defaultValue);
             slider.value = defaultValue;
+
+            slider.OnValueChangedAsObservable()
+                  .Subscribe(SetVolume)
+                  .AddTo(this);
         }
         
         private void SetVolume(float value){

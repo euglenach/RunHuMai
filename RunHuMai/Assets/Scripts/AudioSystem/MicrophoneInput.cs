@@ -4,13 +4,14 @@ using PlayerInput;
 using UniRx;
 using UniRx.Async;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AudioSystem{
     [RequireComponent(typeof(AudioSource))]
     public class MicrophoneInput : MonoBehaviour{
         private AudioSource micAudio;
         float[] spectrum = new float[2048];
-        public int SeparateNum{get;set;} = 700;
+        public int SeparateNum{get;set;} = 800;
         private readonly Subject<VoiceStatus> voiceInputStream = new Subject<VoiceStatus>();
         public IObservable<VoiceStatus> OnVoiceInput => voiceInputStream;
         
@@ -26,7 +27,7 @@ namespace AudioSystem{
         private void FixedUpdate(){
             if(micAudio.clip == null){ return;}
 
-            var data = SoundLibrary.AnalyzeSound(micAudio,2048,0.005f);
+            var data = SoundLibrary.AnalyzeSound(micAudio,2048,0.04f);
 
             // micAudio.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
             //
@@ -45,7 +46,8 @@ namespace AudioSystem{
             // Debug.Log(freq);
 
             voiceInputStream.OnNext(new VoiceStatus(Mathf.RoundToInt(data.Pitch),SeparateNum, data.Volume));
-            Debug.Log(Mathf.RoundToInt(data.Pitch));
+            // text.text = Mathf.RoundToInt(data.Pitch).ToString();
+            if(Mathf.RoundToInt(data.Pitch) > 0)Debug.Log(Mathf.RoundToInt(data.Pitch));
         }
 
         public void StopMicrophone(){

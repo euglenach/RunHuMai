@@ -37,11 +37,11 @@ namespace Settings{
         async UniTask SettingSep(CancellationToken token){
             var list = await input.OnVoiceInput.Buffer(TimeSpan.FromSeconds(5)).First().ToUniTask(token);
             list.OrderBy(n => n.Pitch);
-            list.Select(n => n.Pitch).Print();
+            // list.Select(n => n.Pitch).Print();
             var sep = list[list.Count / 2].Pitch;
             token.ThrowIfCancellationRequested();
             input.SeparateNum = sep;
-            Debug.Log(sep);
+            Debug.Log("設定:"+sep);
         }
     }
 }
