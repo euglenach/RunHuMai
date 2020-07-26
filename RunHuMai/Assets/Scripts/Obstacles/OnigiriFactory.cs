@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Obstacles{
-    public class Onigiri : Obstacle{
+    public class OnigiriFactory : MonoBehaviour{
         
     }
 }
