@@ -6,7 +6,6 @@ using UnityEngine;
 namespace Players{
     [Serializable]
     public struct PlayerAnimationSet{
-        [SerializeField] private Character character;
         [SerializeField] private Sprite[] walk;
         [SerializeField] private int intervalFrame;
         public int IntervalFrame => intervalFrame;

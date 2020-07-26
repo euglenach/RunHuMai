@@ -9,6 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 574658730318167935}
+  - component: {fileID: 8867201922882830296}
+  - component: {fileID: 8867201922882830295}
+  - component: {fileID: 5010155559119531642}
+  - component: {fileID: 4546765121860851818}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -31,6 +35,81 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8867201922882830296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295776335812586608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb3068d6531f0a4aa8ca89df9b0200e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8867201922882830295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295776335812586608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea2b9ec1eda49b99b964485fe7feaa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    character: 0
+    jumpPower: 0
+    movePower: 0
+--- !u!50 &5010155559119531642
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295776335812586608}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &4546765121860851818
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295776335812586608}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.0061493, y: -1.5595264}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 32, y: 32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.304104, y: 26.66743}
+  m_EdgeRadius: 0
 --- !u!1 &6464086556141173715
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5428548173164791519}
   - component: {fileID: 3617054678063319846}
+  - component: {fileID: 8867201922882830297}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -101,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a8cc9e87a9af1804d852efed5fdbe0b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6595891bd5598e4d8b45dafeb67d74e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,3 +192,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8867201922882830297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6464086556141173715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1da26247874971a5b765bd57fffcc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  huAnimation:
+    character: 0
+    walk:
+    - {fileID: 21300000, guid: d6595891bd5598e4d8b45dafeb67d74e, type: 3}
+    - {fileID: 21300000, guid: f5c5d37d876512b4ba7a6833824ad478, type: 3}
+    intervalFrame: 25
+  maiAnimation:
+    character: 1
+    walk:
+    - {fileID: 21300000, guid: a8cc9e87a9af1804d852efed5fdbe0b8, type: 3}
+    - {fileID: 21300000, guid: 7466e078cc4bf6e4ca7a298f3dd68faf, type: 3}
+    intervalFrame: 25

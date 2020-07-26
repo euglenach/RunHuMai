@@ -4,11 +4,13 @@ using UnityEngine;
 
 namespace Players{
     public class Player : MonoBehaviour{
+        [SerializeField] private PlayerStatusSetting setting;
         private PlayerState state;
-        [SerializeField]private PlayerStatus status;
         public PlayerState State => state;
-        public PlayerStatus Status => status;
-        private readonly Subject<Unit> deathStream = new Subject<Unit>();
+        private Character currentCharacter;
+        public PlayerStatus Status => setting.GetStatus(currentCharacter);
+
+            private readonly Subject<Unit> deathStream = new Subject<Unit>();
         public IObservable<Unit> OnDeath => deathStream;
 
         private void Start(){
