@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using AudioSystem;
+using PlayerInput;
 using Suima;
 using UniRx;
 using UniRx.Async;
@@ -12,6 +13,7 @@ using Zenject;
 namespace Settings{
     public class SeparateNumSetting : MonoBehaviour{
         [Inject] private MicrophoneInput input;
+        [Inject] private IInputProvider provider;
         [SerializeField] private Text text;
         private CancellationTokenSource cts;
 
@@ -34,13 +36,13 @@ namespace Settings{
                  }).AddTo(this);
         }
 
-        async UniTask SettingSep(CancellationToken token){
+        private async UniTask SettingSep(CancellationToken token){
             var list = await input.OnVoiceInput.Buffer(TimeSpan.FromSeconds(5)).First().ToUniTask(token);
             list.OrderBy(n => n.Pitch);
             // list.Select(n => n.Pitch).Print();
             var sep = list[list.Count / 2].Pitch;
             token.ThrowIfCancellationRequested();
-            input.SeparateNum = sep;
+            provider.SeparateNum = sep;
             Debug.Log("設定:"+sep);
         }
     }

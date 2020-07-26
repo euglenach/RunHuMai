@@ -15,5 +15,7 @@ namespace PlayerInput{
                              .Where(_ => Input.GetKeyDown(KeyCode.Space))
                              .Select(_ => 1f);
         }
+
+        public float SeparateNum{get;set;}
     }
 }

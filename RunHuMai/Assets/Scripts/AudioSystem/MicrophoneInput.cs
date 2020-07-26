@@ -11,7 +11,6 @@ namespace AudioSystem{
     public class MicrophoneInput : MonoBehaviour{
         private AudioSource micAudio;
         float[] spectrum = new float[2048];
-        public int SeparateNum{get;set;} = 800;
         private readonly Subject<VoiceStatus> voiceInputStream = new Subject<VoiceStatus>();
         public IObservable<VoiceStatus> OnVoiceInput => voiceInputStream;
         
@@ -45,7 +44,7 @@ namespace AudioSystem{
             // var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
             // Debug.Log(freq);
 
-            voiceInputStream.OnNext(new VoiceStatus(Mathf.RoundToInt(data.Pitch),SeparateNum, data.Volume));
+            voiceInputStream.OnNext(new VoiceStatus(Mathf.RoundToInt(data.Pitch),data.Volume));
             // text.text = Mathf.RoundToInt(data.Pitch).ToString();
             if(Mathf.RoundToInt(data.Pitch) > 0)Debug.Log(Mathf.RoundToInt(data.Pitch));
         }
