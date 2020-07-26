@@ -5,5 +5,7 @@
 	public enum Scene {
 		Title,
 		StageSelect,
+		Stage1,
+		Stage2,
 	}
 }
