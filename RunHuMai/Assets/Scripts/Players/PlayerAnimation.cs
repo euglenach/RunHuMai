@@ -19,7 +19,7 @@ namespace Players{
             var token = this.GetCancellationTokenOnDestroy();
             while(!token.IsCancellationRequested){
                 render.sprite = currentCharacterSet.GetSprite(currentAnimation);
-                var task = UniTask.DelayFrame(currentCharacterSet.IntervalFrame,cancellationToken : token);
+                var task = UniTask.DelayFrame(currentCharacterSet.IntervalFrame,PlayerLoopTiming.FixedUpdate,token);
                 var task2 = UniTask.WaitWhile(() => stopAnimation, cancellationToken : token);
                 await UniTask.WhenAll(task,task2);
             }
