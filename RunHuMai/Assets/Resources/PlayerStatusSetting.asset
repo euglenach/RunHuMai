@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStatuses:
   - character: 0
-    jumpPower: 7
-    movePower: 5
-  - character: 1
     jumpPower: 5
-    movePower: 7
+    movePower: 600
+  - character: 1
+    jumpPower: 6
+    movePower: 400

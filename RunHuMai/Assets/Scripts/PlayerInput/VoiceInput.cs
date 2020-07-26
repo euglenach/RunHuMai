@@ -6,16 +6,16 @@ using Zenject;
 namespace PlayerInput{
     public class VoiceInput : IInputProvider{
         [Inject] private MicrophoneInput input;
-        public float SeparateNum{get;set;}
+        public float SeparateNum{get;set;} = 0.1f;
         
         public IObservable<float> InputMove(){
             return input.OnVoiceInput
-                        .Select(voice => voice.Pitch <= SeparateNum ? voice.Volume : 0);
+                        .Select(voice => voice.Volume);
         }
 
         public IObservable<float> InputJump(){
             return input.OnVoiceInput
-                        .Where(voice =>voice.Pitch > SeparateNum)
+                        .Where(voice =>voice.Volume > SeparateNum)
                         .Select(voice => voice.Volume);
         }
     }

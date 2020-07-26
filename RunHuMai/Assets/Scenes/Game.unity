@@ -584,11 +584,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8667050381720043471, guid: 1c91ce4df153cf841ac76f9dd5321237,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c91ce4df153cf841ac76f9dd5321237, type: 3}
 --- !u!1001 &5310300143496303774
@@ -660,33 +655,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd4d63c67b1e42d47a5dfea420db13fd, type: 3}
---- !u!1 &5310300143496303775 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4357457107597577255, guid: dd4d63c67b1e42d47a5dfea420db13fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 5310300143496303774}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &5310300143496303776
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5310300143496303775}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1001 &6097671028009687422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,21 +662,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6097671027007949445, guid: 110b19b118adad748884f54777c5a35f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097671027028147336, guid: 110b19b118adad748884f54777c5a35f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097671027089229777, guid: 110b19b118adad748884f54777c5a35f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6097671027536830078, guid: 110b19b118adad748884f54777c5a35f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -818,31 +771,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SettingCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097671027587332433, guid: 110b19b118adad748884f54777c5a35f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097671027759945967, guid: 110b19b118adad748884f54777c5a35f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097671028531025038, guid: 110b19b118adad748884f54777c5a35f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097671028718731933, guid: 110b19b118adad748884f54777c5a35f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097671028813549249, guid: 110b19b118adad748884f54777c5a35f,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 110b19b118adad748884f54777c5a35f, type: 3}

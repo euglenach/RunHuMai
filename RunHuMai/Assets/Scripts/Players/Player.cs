@@ -15,6 +15,7 @@ namespace Players{
 
         private void Start(){
             state = PlayerState.Play;
+            currentCharacter = Character.Hu;
         }
 
         private void OnTriggerEnter2D(Collider2D other){
