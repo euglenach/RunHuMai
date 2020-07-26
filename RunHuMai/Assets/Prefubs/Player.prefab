@@ -59,10 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea2b9ec1eda49b99b964485fe7feaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status:
-    character: 0
-    jumpPower: 0
-    movePower: 0
+  setting: {fileID: 11400000, guid: d1971e1b4da3d924dae8d57cc10fe094, type: 2}
 --- !u!50 &5010155559119531642
 Rigidbody2D:
   serializedVersion: 4
@@ -205,13 +202,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   huAnimation:
-    character: 0
     walk:
     - {fileID: 21300000, guid: d6595891bd5598e4d8b45dafeb67d74e, type: 3}
     - {fileID: 21300000, guid: f5c5d37d876512b4ba7a6833824ad478, type: 3}
     intervalFrame: 25
   maiAnimation:
-    character: 1
     walk:
     - {fileID: 21300000, guid: a8cc9e87a9af1804d852efed5fdbe0b8, type: 3}
     - {fileID: 21300000, guid: 7466e078cc4bf6e4ca7a298f3dd68faf, type: 3}
