@@ -4,16 +4,15 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 
 namespace Settings{
-    public class VolumeSetting : MonoBehaviour{
+    public class VolumeSetting : SettingBase{
         [SerializeField] private AudioMixer mixer;
         [SerializeField] private AudioMixerGroup mixerGroup;
-        [SerializeField] private float defaultValue;
         private Slider slider;
 
-        public void Init(){
+        public override void Init(){
             slider = GetComponentInChildren<Slider>(true);
-            SetVolume(defaultValue);
-            slider.value = defaultValue;
+            SetVolume(DefaultValue);
+            slider.value = DefaultValue;
 
             slider.OnValueChangedAsObservable()
                   .Subscribe(SetVolume)
