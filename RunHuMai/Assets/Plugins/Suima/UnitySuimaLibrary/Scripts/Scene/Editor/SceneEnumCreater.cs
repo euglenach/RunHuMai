@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class SceneEnumCreater{
     private const string ItemName = "Tools/CreateSceneEnum";
-    private const string CsFilePath = "Assets/Plugins/Suima/Scene/Scene.cs";
+    private const string CsFilePath = "Assets/Plugins/Suima/UnitySuimaLibrary/Scripts/Scene/Scene.cs";
     private static readonly string FileName = Path.GetFileName(CsFilePath);
     private static readonly string FileNameWithoutExtension = Path.GetFileNameWithoutExtension(CsFilePath);
 
