@@ -16,9 +16,11 @@ namespace Players{
             rb = GetComponent<Rigidbody2D>();
             
             input.InputJump()
+                 .Where(_ => player.State != PlayerState.Death)
                  .Where(_ => onGround)
                  .Subscribe(Jump).AddTo(this);
             input.InputMove()
+                 .Where(_ => player.State != PlayerState.Death)
                  .Subscribe(Move).AddTo(this);
         }
 
