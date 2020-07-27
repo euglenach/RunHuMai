@@ -15,6 +15,8 @@ namespace Players{
 
         private async UniTaskVoid Start(){
             var render = GetComponent<SpriteRenderer>();
+            SwitchCharacter(Character.Hu);
+            SwitchAnimation(AnimationState.Walk);
 
             var token = this.GetCancellationTokenOnDestroy();
             while(!token.IsCancellationRequested){

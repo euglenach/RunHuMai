@@ -229,6 +229,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &364818836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675806853391343589, guid: f7872ec38d7e550458d43444044f3b6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8867201922882830292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &364818838
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364818836}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.47283077, y: -1.5197573}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.805513, y: 27.00488}
+  m_EdgeRadius: 0
 --- !u!114 &472923342 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7196919394984776248, guid: f17336bdf3153844e8c3e02af1f2d2e8,
@@ -904,6 +936,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993766147272140121, guid: f7872ec38d7e550458d43444044f3b6f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -14.353313
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993766147272140121, guid: f7872ec38d7e550458d43444044f3b6f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.7430487
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993766147272140121, guid: f7872ec38d7e550458d43444044f3b6f,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.06754017
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993766147272140121, guid: f7872ec38d7e550458d43444044f3b6f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5.9983244
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993766147272140121, guid: f7872ec38d7e550458d43444044f3b6f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4295776335812586608, guid: f7872ec38d7e550458d43444044f3b6f,
         type: 3}
