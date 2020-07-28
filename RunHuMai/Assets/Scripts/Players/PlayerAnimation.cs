@@ -11,12 +11,13 @@ namespace Players{
         private AnimationState currentAnimation;
         private Sprite currentSprite;
         private bool stopAnimation;
+        private SpriteRenderer render;
 
 
         private async UniTaskVoid Start(){
-            var render = GetComponent<SpriteRenderer>();
-            SwitchCharacter(Character.Hu);
-            SwitchAnimation(AnimationState.Walk);
+            render = GetComponent<SpriteRenderer>(); 
+            SwitchCharacter(Character.Mai);
+            // SwitchAnimation(AnimationState.Walk);
 
             var token = this.GetCancellationTokenOnDestroy();
             while(!token.IsCancellationRequested){
@@ -27,7 +28,7 @@ namespace Players{
             }
         }
 
-        public void SwitchCharacter(Character character,Action action = null){
+        public void SwitchCharacter(Character character){
             switch(character){
                 case Character.Hu:
                     currentCharacterSet = huAnimation;
@@ -36,12 +37,11 @@ namespace Players{
                     currentCharacterSet = maiAnimation;
                     break;
             }
-            action?.Invoke();
+            render.sprite = currentCharacterSet.GetSprite(currentAnimation);
         }
-        public void SwitchAnimation(AnimationState state,Action action = null){
+        public void SwitchAnimation(AnimationState state){
             currentAnimation = state;
             stopAnimation = false;
-            action?.Invoke();
         }
 
         public void StopAnimation(){

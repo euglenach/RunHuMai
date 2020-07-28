@@ -7,7 +7,7 @@ namespace Obstacles{
     public class CollisionEvent : ObstacleEvent{
         private void OnTriggerEnter2D(Collider2D other){
             if(other.GetComponent<Player>()){
-                generateStream.OnNext(Unit.Default);
+                invokeStream.OnNext(Unit.Default);
             }
         }
     }

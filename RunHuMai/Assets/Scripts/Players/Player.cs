@@ -8,25 +8,32 @@ namespace Players{
         [SerializeField] private PlayerStatusSetting setting;
         private PlayerState state;
         public PlayerState State => state;
-        private Character currentCharacter;
         public PlayerStatus Status => setting.GetStatus(currentCharacter);
         private readonly Subject<Unit> deathStream = new Subject<Unit>();
         public IObservable<Unit> OnDeath => deathStream;
+        private Character currentCharacter;
+        private PlayerAnimation animation;
 
         private void Start(){
             state = PlayerState.Play;
-            currentCharacter = Character.Mai;
+            animation = GetComponentInChildren<PlayerAnimation>();
+            ChangeCharacter(Character.Mai);
         }
 
         private void Update(){
-            if(Input.GetKeyDown(KeyCode.M))currentCharacter = Character.Mai;
-            if(Input.GetKeyDown(KeyCode.H))currentCharacter = Character.Hu;
+            if(Input.GetKeyDown(KeyCode.M)) ChangeCharacter(Character.Mai);
+            if(Input.GetKeyDown(KeyCode.H)) ChangeCharacter(Character.Hu);
         }
 
-        private void OnTriggerEnter2D(Collider2D other){
-            if(!other.GetComponent<Obstacle>()){ return;}
-            
+        public void ChangeCharacter(Character character){
+            animation.SwitchCharacter(character);
+            // Debug.Log(character);
+            currentCharacter = character;
+        }
+
+        public void Death(){
             state = PlayerState.Death;
+            deathStream.OnNext(Unit.Default);
         }
     }
 }
