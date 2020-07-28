@@ -1,12 +1,13 @@
+using PlayerInput;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Settings{
     public class VoiceSensitiveSetting : MonoBehaviour{
-        [SerializeField] private Slider slider;
-        private float voiceSensitive;
-        public float VoiceSensitive => voiceSensitive;
+        Slider slider;
+        [Inject] private IInputProvider input;
 
         private void Start(){
             slider = GetComponent<Slider>();
@@ -16,8 +17,7 @@ namespace Settings{
         }
 
         private void SetValue(float value){
-            slider.value = value;
-            voiceSensitive = value;
+            if(input is VoiceInput voiceInput){ voiceInput.Sensitive = value; }
         }
     }
 }
