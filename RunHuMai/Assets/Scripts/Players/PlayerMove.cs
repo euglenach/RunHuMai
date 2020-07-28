@@ -34,7 +34,7 @@ namespace Players{
 
             if(onGround)animation.StartAnimation();
             // Debug.Log("power"+power);
-            // power = Mathf.Clamp(power, 0.3f, .3f);
+            power = Mathf.Clamp(power, 0, .3f);
             var moveVector = player.Status.MovePower * power * Time.fixedDeltaTime  * Vector2.right;
             if(!onGround){
                 moveVector *= .4f;

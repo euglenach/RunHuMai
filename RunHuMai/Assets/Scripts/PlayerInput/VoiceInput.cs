@@ -8,17 +8,18 @@ namespace PlayerInput{
         [Inject] private MicrophoneInput input;
         public float SeparateNum{get;set;} = 0.3f;
         public float UnderNum{get;set;} = 0.02f;
+        private float sensitive = 1;
         
         public IObservable<float> InputMove(){
             return input.OnVoiceInput
                         // .Where(voice =>voice.Volume >= UnderNum)
-                        .Select(voice => voice.Volume >= UnderNum ? voice.Volume : 0);
+                        .Select(voice => voice.Volume * sensitive >= UnderNum ? voice.Volume * sensitive : 0);
         }
 
         public IObservable<float> InputJump(){
             return input.OnVoiceInput
-                        .Where(voice =>voice.Volume > SeparateNum)
-                        .Select(voice => voice.Volume);
+                        .Where(voice =>voice.Volume * sensitive > SeparateNum)
+                        .Select(voice => voice.Volume * sensitive);
         }
     }
 }
