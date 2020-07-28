@@ -7,5 +7,6 @@
 		StageSelect,
 		Stage1,
 		Stage2,
+		Result,
 	}
 }

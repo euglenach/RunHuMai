@@ -9,11 +9,9 @@ namespace Players{
         private PlayerState state;
         public PlayerState State => state;
         public PlayerStatus Status => setting.GetStatus(currentCharacter);
-        private readonly Subject<Unit> deathStream = new Subject<Unit>();
-        public IObservable<Unit> OnDeath => deathStream;
+        private readonly Subject<bool> resultStream = new Subject<bool>();
+        public IObservable<bool> OnResult => resultStream;
         private Character currentCharacter;
-        private readonly Subject<Unit> clearStream = new Subject<Unit>();
-        public IObservable<Unit> OnClear => clearStream;
         private PlayerAnimation animation;
 
         private void Start(){
@@ -37,14 +35,14 @@ namespace Players{
         public void Death(){
             if(state != PlayerState.Play){ return;}
             state = PlayerState.Death;
-            deathStream.OnNext(Unit.Default);
+            resultStream.OnNext(false);
             Debug.Log("VAR");
         }
 
         public void Clear(){
             if(state != PlayerState.Play){ return;}
             state = PlayerState.Clear;
-            clearStream.OnNext(Unit.Default);
+            resultStream.OnNext(true);
         }
     }
 }
