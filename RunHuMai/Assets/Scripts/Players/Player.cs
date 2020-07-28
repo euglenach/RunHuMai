@@ -15,7 +15,12 @@ namespace Players{
 
         private void Start(){
             state = PlayerState.Play;
-            currentCharacter = Character.Hu;
+            currentCharacter = Character.Mai;
+        }
+
+        private void Update(){
+            if(Input.GetKeyDown(KeyCode.M))currentCharacter = Character.Mai;
+            if(Input.GetKeyDown(KeyCode.H))currentCharacter = Character.Hu;
         }
 
         private void OnTriggerEnter2D(Collider2D other){

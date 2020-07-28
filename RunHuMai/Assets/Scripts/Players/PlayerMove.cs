@@ -10,10 +10,12 @@ namespace Players{
         private Player player;
         private Rigidbody2D rb;
         private bool onGround;
+        private PlayerAnimation animation;
 
         private void Start(){
             player = GetComponentInParent<Player>();
             rb = GetComponent<Rigidbody2D>();
+            animation = GetComponentInChildren<PlayerAnimation>();
             
             input.InputJump()
                  .Where(_ => player.State != PlayerState.Death)
@@ -25,23 +27,45 @@ namespace Players{
         }
 
         private void Move(float power){
+            if(power <= 0){
+                animation.StopAnimation();
+                return;
+            }
+
+            if(onGround)animation.StartAnimation();
+            Debug.Log("power"+power);
+            // power = Mathf.Clamp(power, 0.3f, .3f);
             var moveVector = player.Status.MovePower * power * Time.fixedDeltaTime  * Vector2.right;
+            if(!onGround){
+                moveVector *= .4f;
+                
+                // if(moveVector.x != 0){Debug.Log(moveVector.x);}
+            }
             rb.velocity = new Vector2(moveVector.x,rb.velocity.y);
         }
 
         private void Jump(float power){
             // Debug.Log("power"+power);
-            power = Mathf.Clamp(power * 10, 0, 1f);
+            animation.StartAnimation();
+            power = Mathf.Clamp(power, 0f, .3f);
             var jumpPower = power * player.Status.JumpPower * Vector2.up;
             rb.AddForce(jumpPower,ForceMode2D.Impulse);
         }
 
-        private void OnCollisionExit2D(Collision2D other){
-            onGround = false;
+        private void OnTriggerExit2D(Collider2D other){
+            if(other.gameObject.CompareTag("Ground")){
+                onGround = false;
+            }
         }
 
-        private void OnCollisionEnter2D(Collision2D other){
-            onGround = true;
+        private void OnTriggerEnter2D(Collider2D other){
+            if(other.gameObject.CompareTag("Ground")){
+                onGround = true;
+            }
+        }
+
+        private void Update(){
+            // Debug.Log(onGround);
         }
     }
 }

@@ -40,14 +40,14 @@ namespace AudioSystem{
                 }
             }
 
-            if(maxValue < 0.02f){ maxValue = 0; }
+            // if(maxValue < 0.02f){ maxValue = 0; }
 
             // var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
             // Debug.Log(freq);
 
             voiceInputStream.OnNext(new VoiceStatus(Mathf.RoundToInt(data.Pitch),maxValue));
             // text.text = Mathf.RoundToInt(data.Pitch).ToString();
-            if(maxValue > 0)Debug.Log(maxValue);
+            // if(maxValue > 0)Debug.Log(maxValue);
         }
 
         public void StopMicrophone(){
