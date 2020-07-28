@@ -18,11 +18,11 @@ namespace Players{
             animation = GetComponentInChildren<PlayerAnimation>();
             
             input.InputJump()
-                 .Where(_ => player.State != PlayerState.Death)
+                 .Where(_ => player.State == PlayerState.Play)
                  .Where(_ => onGround)
                  .Subscribe(Jump).AddTo(this);
             input.InputMove()
-                 .Where(_ => player.State != PlayerState.Death)
+                 .Where(_ => player.State == PlayerState.Play)
                  .Subscribe(Move).AddTo(this);
         }
 

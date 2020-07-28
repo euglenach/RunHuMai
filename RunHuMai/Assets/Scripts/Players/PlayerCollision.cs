@@ -8,14 +8,18 @@ namespace Players{
 
         private void Start(){
             player = GetComponentInParent<Player>();
-            
-            
         }
         
-        private void OnTriggerEnter2D(Collider2D other){
-            if(!other.GetComponent<Obstacle>()){ return;}
+        private void OnCollisionEnter2D(Collision2D other){
+            if(other.gameObject.GetComponent<Obstacle>()){
+                player.Death();
+            }
+        }
 
-            player.Death();
+        private void OnTriggerEnter2D(Collider2D other){
+            if(other.CompareTag("Goal")){
+                player.Clear();
+            }
         }
     }
 }
