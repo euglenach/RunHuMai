@@ -1,11 +1,15 @@
 using System;
+using Systems;
 using Obstacles;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace Players{
     public class Player : MonoBehaviour{
         [SerializeField] private PlayerStatusSetting setting;
+        [Inject] private SePlayer sePlayer;
+        [Inject] private SoundDatabase sound;
         private PlayerState state;
         public PlayerState State => state;
         public PlayerStatus Status => setting.GetStatus(currentCharacter);
@@ -36,6 +40,7 @@ namespace Players{
             if(state != PlayerState.Play){ return;}
             state = PlayerState.Death;
             animation.SwitchAnimation(AnimationState.Lose);
+            sePlayer.PlayOneShot(sound.GameOver);
             resultStream.OnNext(false);
         }
 
@@ -43,6 +48,7 @@ namespace Players{
             if(state != PlayerState.Play){ return;}
             state = PlayerState.Clear;
             animation.SwitchAnimation(AnimationState.Win);
+            sePlayer.PlayOneShot(sound.GameClear);
             resultStream.OnNext(true);
         }
     }
