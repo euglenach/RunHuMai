@@ -6,7 +6,7 @@ using Zenject;
 namespace PlayerInput{
     public class VoiceInput : IInputProvider{
         [Inject] private MicrophoneInput input;
-        public float SeparateNum{get;set;} = 0.3f;
+        public float SeparateNum{get;set;} = 0.2f;
         public float UnderNum{get;set;} = 0.02f;
         public float Sensitive{get;set;} = 1;
         
