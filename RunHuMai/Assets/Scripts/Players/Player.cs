@@ -36,7 +36,6 @@ namespace Players{
             if(state != PlayerState.Play){ return;}
             state = PlayerState.Death;
             resultStream.OnNext(false);
-            Debug.Log("VAR");
         }
 
         public void Clear(){
