@@ -35,12 +35,14 @@ namespace Players{
         public void Death(){
             if(state != PlayerState.Play){ return;}
             state = PlayerState.Death;
+            animation.SwitchAnimation(AnimationState.Lose);
             resultStream.OnNext(false);
         }
 
         public void Clear(){
             if(state != PlayerState.Play){ return;}
             state = PlayerState.Clear;
+            animation.SwitchAnimation(AnimationState.Win);
             resultStream.OnNext(true);
         }
     }
