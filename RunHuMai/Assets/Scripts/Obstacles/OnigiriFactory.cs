@@ -19,8 +19,7 @@ namespace Obstacles{
                              var obj = Instantiate(onigiri);
                              obj.transform.position = transform.position;
                              if(!loop){ return; }
-
-                             Debug.Log("VAR");
+                             
                              await UniTask.Delay(interval * 1000,cancellationToken: token);
                          }
                      })
