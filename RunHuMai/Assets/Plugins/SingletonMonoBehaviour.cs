@@ -35,7 +35,7 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBe
             return true;
         } else if(Instance == this){ return true; }
 
-        Destroy(this);
+        Destroy(gameObject);
         return false;
     }
 }

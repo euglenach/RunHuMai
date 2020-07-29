@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c387d133417d406196365fd7074acc19, type: 3}
   m_Name: SoundDatabase
   m_EditorClassIdentifier: 
+  title: {fileID: 8300000, guid: 714d60c919c5a054ab2603d61c662919, type: 3}
+  stage: {fileID: 8300000, guid: e7abe82847ad786489b03e19e56d5755, type: 3}
   gameOver: {fileID: 8300000, guid: d8c5bb6dd647f3b4aac69687147db7fa, type: 3}
   gameClear: {fileID: 8300000, guid: 478cda16c825af747af2f401efbde6d6, type: 3}
   settingOpen: {fileID: 8300000, guid: 84a601be674bd97418f3392103b7827b, type: 3}

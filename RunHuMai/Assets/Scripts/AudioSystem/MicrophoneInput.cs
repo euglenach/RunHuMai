@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using FrostweepGames.Plugins.Native;
 using PlayerInput;
 using UniRx;
 using UniRx.Async;
@@ -13,24 +14,11 @@ namespace AudioSystem{
         float[] spectrum = new float[2048];
         private readonly Subject<VoiceStatus> voiceInputStream = new Subject<VoiceStatus>();
         public IObservable<VoiceStatus> OnVoiceInput => voiceInputStream;
-#if UNITY_WEBGL && !UNITY_EDITOR
-        void Awake()
-        {
-            Microphone.Init();
-            Microphone.QueryAudioInput();
-        }
-#endif
-
-#if UNITY_WEBGL && !UNITY_EDITOR
-        void Update()
-        {
-            Microphone.Update();
-        }
-#endif
         
         void Start(){
+
             micAudio = GetComponent<AudioSource>();
-            var micDevices = Microphone.devices;
+            var micDevices = CustomMicrophone.devices;
 
             Debug.Log("既定のデバイス:" + micDevices.First());
 
@@ -39,9 +27,9 @@ namespace AudioSystem{
         
         private void FixedUpdate(){
             if(micAudio.clip == null){ return;}
-#if !(UNITY_WEBGL && !UNITY_EDITOR)
-            var data = SoundLibrary.AnalyzeSound(micAudio,2048,0.04f);
-#endif
+            
+            // var data = SoundLibrary.AnalyzeSound(micAudio,2048,0.04f);
+
 
             micAudio.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
             
@@ -59,10 +47,6 @@ namespace AudioSystem{
 
             // var freq = maxIndex * AudioSettings.outputSampleRate / 2 / spectrum.Length;
             // Debug.Log(freq);
-            
-#if UNITY_WEBGL && !UNITY_EDITOR
-            maxValue = Microphone.volumes.Max();
-#endif
 
             voiceInputStream.OnNext(new VoiceStatus(0,maxValue));
             // text.text = Mathf.RoundToInt(data.Pitch).ToString();
@@ -73,15 +57,10 @@ namespace AudioSystem{
             micAudio.clip = null;
             micAudio.Stop();
         }
-        public async void StartMicrophone(string deviceName = null){
+        public  void StartMicrophone(string deviceName = null){
             // micAudio.clip = Microphone.Start(deviceName, true, 1000, 44100);
-#if UNITY_WEBGL && !UNITY_EDITOR
-            Microphone.Init();
-            Microphone.QueryAudioInput();
-#else
-            micAudio.clip = Microphone.Start(deviceName, true, 1000, 44100);
-            await UniTask.WaitWhile(() =>Microphone.GetPosition(deviceName) <= 0);
-#endif
+            micAudio.clip = CustomMicrophone.Start(null, true, 1000, 44100);
+            // await UniTask.WaitWhile(() =>CustomMicrophone.GetPosition(deviceName) <= 0);
             // await UniTask.WaitWhile(() =>Microphone.GetPosition(deviceName) <= 0);
             micAudio.Play();
         }

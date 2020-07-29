@@ -1,5 +1,6 @@
 using System.Linq;
 using AudioSystem;
+using FrostweepGames.Plugins.Native;
 using UniRx;
 using UniRx.Async;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Settings{
         [Inject] private MicrophoneInput microphoneInput;
         private void Start(){
             var dropDown = GetComponentInChildren<Dropdown>();
-            dropDown.AddOptions(Microphone.devices.ToList());
+            dropDown.AddOptions(CustomMicrophone.devices.ToList());
 
             dropDown.onValueChanged.AsObservable()
                     .Subscribe(value => {

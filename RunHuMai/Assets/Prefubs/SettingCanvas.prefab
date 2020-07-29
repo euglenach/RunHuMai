@@ -2698,7 +2698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936c8a631c754980a515efab89770af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultValue: 0.5
+  defaultValue: 0
   mixer: {fileID: 24100000, guid: f40a9f5b2a51a2645935c0a0398e6dfe, type: 2}
   mixerGroup: {fileID: -2820355444037710345, guid: f40a9f5b2a51a2645935c0a0398e6dfe,
     type: 2}
@@ -4101,7 +4101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936c8a631c754980a515efab89770af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultValue: 0.75
+  defaultValue: 0.4
   mixer: {fileID: 24100000, guid: f40a9f5b2a51a2645935c0a0398e6dfe, type: 2}
   mixerGroup: {fileID: 24300002, guid: f40a9f5b2a51a2645935c0a0398e6dfe, type: 2}
 --- !u!1 &6097671028786544029

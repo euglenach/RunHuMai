@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/FrostweepGames/MicrophoneWebGL/Examples/Basic_Example/Example.unity
+    guid: a672695fce6638a4d97d2540c6b497ee
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 0a0e19032dafd0a4da664a56b9a1645c

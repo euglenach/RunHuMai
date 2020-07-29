@@ -12,6 +12,7 @@ using Scene = Suima.Scene.Scene;
 namespace Systems{
     public class GameResult : MonoBehaviour{
         [Inject] private Player player;
+        [Inject] private BGMPlayer bgmPlayer;
         private void Start(){
             player.OnResult.First()
                   .Subscribe(Over)
@@ -19,6 +20,7 @@ namespace Systems{
         }
 
         private async void Over(bool isClear){
+            bgmPlayer.Stop();
             var token = this.GetCancellationTokenOnDestroy();
             var nowScene = SceneManager.NoeScene;
             await UniTask.Delay(2000, cancellationToken : token);
