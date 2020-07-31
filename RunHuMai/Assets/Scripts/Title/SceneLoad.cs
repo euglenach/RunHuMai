@@ -17,23 +17,35 @@ namespace Title{
         
         private void Start(){
             bgmPlayer.Play(sound.Title);
-            
-            micPermission.Onclick
-                         .First()
-                         .Subscribe(_ => {
-                             InputAsObservable.GetMouseButtonUp(0)
-                                              .First()
-                                              .Subscribe(async __ => {
-                                                  CustomMicrophone.RequestMicrophonePermission();
-                                                  sePlayer.PlayOneShot(sound.OtherButtonClick);
-                                                  // await UniTask.WaitWhile(
-                                                  //     () => CustomMicrophone.HasConnectedMicrophoneDevices()
-                                                  //           && CustomMicrophone.HasMicrophonePermission());
+            //
+            // micPermission.Onclick
+            //              .First()
+            //              .Subscribe(_ => {
+            //                  InputAsObservable.GetMouseButtonUp(0)
+            //                                   .First()
+            //                                   .Subscribe(async __ => {
+            //                                       CustomMicrophone.RequestMicrophonePermission();
+            //                                       sePlayer.PlayOneShot(sound.OtherButtonClick);
+            //                                       // await UniTask.WaitWhile(
+            //                                       //     () => CustomMicrophone.HasConnectedMicrophoneDevices()
+            //                                       //           && CustomMicrophone.HasMicrophonePermission());
+            //                                       
+            //                                       SceneManager.FadeLoad(Scene.StageSelect, 1, this.GetCancellationTokenOnDestroy());
+            //                                       
+            //                                   }).AddTo(this);
+            //              }).AddTo(this);
+            InputAsObservable.GetMouseButtonUp(0)
+                             .First()
+                             .Subscribe(async __ => {
+                                 CustomMicrophone.RequestMicrophonePermission();
+                                 sePlayer.PlayOneShot(sound.OtherButtonClick);
+                                 // await UniTask.WaitWhile(
+                                 //     () => CustomMicrophone.HasConnectedMicrophoneDevices()
+                                 //           && CustomMicrophone.HasMicrophonePermission());
                                                   
-                                                  SceneManager.FadeLoad(Scene.StageSelect, 1, this.GetCancellationTokenOnDestroy());
+                                 SceneManager.FadeLoad(Scene.StageSelect, 1, this.GetCancellationTokenOnDestroy());
                                                   
-                                              }).AddTo(this);
-                         }).AddTo(this);
+                             }).AddTo(this);
         }
     }
 }
