@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 namespace Settings{
     public class SwitchDisplayButton : MonoBehaviour{
-        [SerializeField] private GameObject showObject;
-        [SerializeField] private GameObject hiddenObject;
+        [SerializeField] protected GameObject showObject;
+        [SerializeField] protected GameObject hiddenObject;
 
-        private void Start(){
+        protected virtual void Start(){
             GetComponent<Button>()
                 .OnClickAsObservable()
                 .Subscribe(_ => {

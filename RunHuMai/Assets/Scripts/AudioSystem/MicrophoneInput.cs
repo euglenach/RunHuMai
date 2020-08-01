@@ -14,7 +14,9 @@ namespace AudioSystem{
         float[] spectrum = new float[2048];
         private readonly Subject<VoiceStatus> voiceInputStream = new Subject<VoiceStatus>();
         public IObservable<VoiceStatus> OnVoiceInput => voiceInputStream;
-        
+        private string currentDevice;
+        public string CurrentDevice => currentDevice;
+
         void Start(){
 
             micAudio = GetComponent<AudioSource>();
@@ -54,15 +56,25 @@ namespace AudioSystem{
         }
 
         public void StopMicrophone(){
-            micAudio.clip = null;
+            // Microphone.End(currentDevice);
             micAudio.Stop();
+            micAudio.clip = null;
         }
-        public  void StartMicrophone(string deviceName = null){
+        public async void StartMicrophone(string deviceName = null){
+            currentDevice = deviceName;
             micAudio.clip = Microphone.Start(deviceName, true, 2000, 44100);
+            // while (!(Microphone.GetPosition("") > 0)) { }
+            await UniTask.WaitUntil(() => Microphone.GetPosition(deviceName) > 0);
             // micAudio.clip = CustomMicrophone.Start(null, true, 1000, 44100);
             // await UniTask.WaitWhile(() =>CustomMicrophone.GetPosition(deviceName) <= 0);
             // await UniTask.WaitWhile(() =>Microphone.GetPosition(deviceName) <= 0);
             micAudio.Play();
+        }
+
+        public async void RestartMicrophone(){
+            StopMicrophone();
+            await UniTask.Delay(500, cancellationToken:this.GetCancellationTokenOnDestroy());
+            StartMicrophone(currentDevice);
         }
     }
 }

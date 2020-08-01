@@ -4323,7 +4323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936c8a631c754980a515efab89770af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultValue: 0.3
+  defaultValue: 0.5
   mixer: {fileID: 24100000, guid: f40a9f5b2a51a2645935c0a0398e6dfe, type: 2}
   mixerGroup: {fileID: -4642493393209026215, guid: f40a9f5b2a51a2645935c0a0398e6dfe,
     type: 2}
