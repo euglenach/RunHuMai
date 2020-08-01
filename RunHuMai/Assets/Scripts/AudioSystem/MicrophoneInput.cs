@@ -58,8 +58,8 @@ namespace AudioSystem{
             micAudio.Stop();
         }
         public  void StartMicrophone(string deviceName = null){
-            // micAudio.clip = Microphone.Start(deviceName, true, 1000, 44100);
-            micAudio.clip = CustomMicrophone.Start(null, true, 1000, 44100);
+            micAudio.clip = Microphone.Start(deviceName, true, 2000, 44100);
+            // micAudio.clip = CustomMicrophone.Start(null, true, 1000, 44100);
             // await UniTask.WaitWhile(() =>CustomMicrophone.GetPosition(deviceName) <= 0);
             // await UniTask.WaitWhile(() =>Microphone.GetPosition(deviceName) <= 0);
             micAudio.Play();

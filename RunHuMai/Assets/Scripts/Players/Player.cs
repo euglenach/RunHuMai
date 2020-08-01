@@ -16,6 +16,9 @@ namespace Players{
         private readonly Subject<bool> resultStream = new Subject<bool>();
         public IObservable<bool> OnResult => resultStream;
         private Character currentCharacter;
+
+        public Character CurrentCharacter => currentCharacter;
+
         private PlayerAnimation animation;
 
         private void Start(){
@@ -32,6 +35,7 @@ namespace Players{
 #endif
         public void ChangeCharacter(Character character){
             animation.SwitchCharacter(character);
+            animation.StartAnimation();
             // Debug.Log(character);
             currentCharacter = character;
         }

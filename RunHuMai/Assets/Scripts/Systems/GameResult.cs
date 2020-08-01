@@ -26,7 +26,7 @@ namespace Systems{
             await UniTask.Delay(2000, cancellationToken : token);
             void OverEvent(UnityEngine.SceneManagement.Scene scene,LoadSceneMode mode){
                 var rm = GameObject.Find("ResultManager").GetComponent<ResultManager>();
-                rm.Init(isClear,nowScene);
+                rm.Init(isClear,nowScene,player.CurrentCharacter);
                 UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OverEvent;
             };
             UnityEngine.SceneManagement.SceneManager.sceneLoaded += OverEvent;

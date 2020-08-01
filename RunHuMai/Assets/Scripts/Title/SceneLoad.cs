@@ -5,6 +5,7 @@ using Suima.Scene;
 using UniRx;
 using UniRx.Async;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Title{
@@ -34,10 +35,11 @@ namespace Title{
             //                                       
             //                                   }).AddTo(this);
             //              }).AddTo(this);
-            InputAsObservable.GetMouseButtonUp(0)
+            GetComponent<Button>()
+                             .OnClickAsObservable()
                              .First()
                              .Subscribe(async __ => {
-                                 CustomMicrophone.RequestMicrophonePermission();
+                                 // CustomMicrophone.RequestMicrophonePermission();
                                  sePlayer.PlayOneShot(sound.OtherButtonClick);
                                  // await UniTask.WaitWhile(
                                  //     () => CustomMicrophone.HasConnectedMicrophoneDevices()

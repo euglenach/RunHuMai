@@ -17,8 +17,9 @@ namespace Result{
         
 
         private void Start(){
+            var currentChar = (int)resultManager.Character;
             sePlayer.PlayOneShot(sound.Result);
-            render.sprite = resultManager.IsClear? win.Random() : lose.Random();
+            render.sprite = resultManager.IsClear? win[currentChar] : lose[currentChar];
             text.text = resultManager.IsClear? "Clear!!" : "GameOver...";
         }
     }
