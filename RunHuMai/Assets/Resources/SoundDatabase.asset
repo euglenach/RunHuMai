@@ -16,7 +16,8 @@ MonoBehaviour:
   stage: {fileID: 8300000, guid: e7abe82847ad786489b03e19e56d5755, type: 3}
   gameOver: {fileID: 8300000, guid: d8c5bb6dd647f3b4aac69687147db7fa, type: 3}
   gameClear: {fileID: 8300000, guid: 478cda16c825af747af2f401efbde6d6, type: 3}
-  settingOpen: {fileID: 8300000, guid: 84a601be674bd97418f3392103b7827b, type: 3}
+  settingOpen: {fileID: 8300000, guid: 70c3ba02cbd4a5643a8629e2ba38b60b, type: 3}
+  settingClose: {fileID: 8300000, guid: 8ffb24c40d4430c4eaacb000a9a5b29e, type: 3}
   charaChange: {fileID: 8300000, guid: 3da108f5f50941a41975f12270d0a6ba, type: 3}
   otherButtonClick: {fileID: 8300000, guid: d3a344b0462d9f3479bd1df7036b3623, type: 3}
   otherButtonClick2: {fileID: 8300000, guid: cd522e9186c8fd546a5cc098ced416f0, type: 3}

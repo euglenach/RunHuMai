@@ -670,6 +670,7 @@ GameObject:
   - component: {fileID: 7035389240369882569}
   - component: {fileID: 5882051045602809710}
   - component: {fileID: 558995531512445477}
+  - component: {fileID: 1915862001}
   m_Layer: 5
   m_Name: SettingButton
   m_TagString: Untagged
@@ -790,6 +791,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showObject: {fileID: 6097671028786544029}
   hiddenObject: {fileID: 2328998786973972426}
+--- !u!114 &1915862001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328998786973972426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633b126589ca4c5ab2ab2fdf56595fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 70c3ba02cbd4a5643a8629e2ba38b60b, type: 3}
 --- !u!1 &2425847770431144874
 GameObject:
   m_ObjectHideFlags: 0
@@ -4820,6 +4834,7 @@ GameObject:
   - component: {fileID: 105778654851694077}
   - component: {fileID: 271311093593801140}
   - component: {fileID: 5528106030459396644}
+  - component: {fileID: 192285609}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -4940,3 +4955,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showObject: {fileID: 2328998786973972426}
   hiddenObject: {fileID: 6097671028786544029}
+--- !u!114 &192285609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8830032914561499545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633b126589ca4c5ab2ab2fdf56595fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 8ffb24c40d4430c4eaacb000a9a5b29e, type: 3}
