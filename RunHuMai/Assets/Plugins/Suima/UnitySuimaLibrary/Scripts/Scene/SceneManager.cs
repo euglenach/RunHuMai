@@ -36,9 +36,10 @@ namespace Suima.Scene{
             var fadeCanvas = new GameObject("FadeCanvas").AddComponent<Canvas>();
             var fadeImage = new GameObject("LoadImage").AddComponent<Image>();
             fadeImage.transform.SetParent(fadeCanvas.transform);
-            fadeImage.color = Color.black;
+            // fadeImage.color = Color.black;
+            fadeImage.sprite = Resources.Load<Sprite>("LoadScreen");
             fadeImage.SetAlpha(0);
-            fadeImage.GetComponent<RectTransform>().sizeDelta = new Vector2(5000, 5000);
+            fadeImage.GetComponent<RectTransform>().sizeDelta = new Vector2(800, 550);
             fadeCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
             fadeCanvas.sortingOrder = 999;
             fadeCanvas.gameObject.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
