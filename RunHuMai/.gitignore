@@ -11,7 +11,6 @@
 /[Mm]emoryCaptures/
 .WebGL/
 */FrostweepGames/
-RunHuMai/Asset/FrostweepGames.meta
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
